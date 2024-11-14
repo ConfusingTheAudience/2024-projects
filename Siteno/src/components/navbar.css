@@ -1,0 +1,120 @@
+/* Navbar */
+.navbar-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  border-bottom: 1px solid var(--lighterSecondary-color);
+  height: 60px;
+}
+.navbar-box {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.logo {
+  font-size: 2.5rem;
+  color: var(--primary-color);
+}
+
+.navbar-list {
+  position: relative;
+  display: inline-block;
+  list-style-type: none;
+  text-decoration: none;
+  margin: 0 10px;
+  color: #fff;
+}
+.navbar-list:hover {
+  opacity: 0.95;
+}
+.navbar-list::after {
+  content: "";
+  width: 0%;
+  height: 2px;
+  background-color: var(--primary-color);
+  display: block;
+  transition: 0.4s ease-in-out;
+}
+.navbar-list:hover::after {
+  width: 90%;
+}
+.navbar-list.active {
+  color: var(--primary-color);
+  font-weight: bold;
+}
+
+.navbar-btn {
+  position: relative;
+  z-index: 0;
+  overflow: hidden;
+  background-color: var(--darkerPrimary-color);
+  border: none;
+}
+.navbar-btn::before {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 100%;
+  top: 0;
+  left: 0;
+  border-radius: 8px;
+  background-color: var(--primary-color);
+  transition: width 0.3s ease;
+  z-index: -1;
+}
+.navbar-btn:hover::before {
+  width: 100%;
+}
+
+/* mobile navbar */
+.navbar-containermobile {
+  display: none;
+}
+.navbar-boxmobile {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  height: 60px;
+}
+.logomobile {
+  font-size: 3rem;
+  color: var(--primary-color);
+}
+.togglermobile {
+  font-size: 2rem;
+}
+.list-mobile {
+  width: 110%;
+  position: absolute;
+  top: 60px;
+  right: 0;
+  background: var(--lighterSecondary-color);
+  padding: 10px;
+  text-align: right;
+  border-top-left-radius: 8px;
+  border-bottom-left-radius: 8px;
+  transition: transform 0.5s ease-in-out;
+}
+.list-mobile.open {
+  transform: translateX(0);
+}
+
+.list-mobile.close {
+  transform: translateX(100%);
+  /* display: none; */
+}
+.togglermobile {
+  cursor: pointer;
+}
+
+@media only screen and (max-width: 768px) {
+  .navbar-container {
+    display: none;
+  }
+  .navbar-containermobile {
+    display: block;
+  }
+}

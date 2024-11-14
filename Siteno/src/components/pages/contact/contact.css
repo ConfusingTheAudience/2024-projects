@@ -1,0 +1,120 @@
+.contact {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: calc(100vh - 60px);
+  margin: 0 auto;
+  padding: 20px;
+  border-radius: 5px;
+  overflow: hidden;
+}
+.contact-box {
+  position: relative;
+}
+.contact-box::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: -1;
+  background: var(--primary-color);
+  background-color: var(--darkerPrimary-color);
+  transform: translate(-50%, -50%);
+  width: 320%;
+  height: 140%;
+  animation: moveElement 1.3s ease-in-out forwards;
+}
+@keyframes moveElement {
+  0% {
+    border-radius: 0;
+  }
+  100% {
+    border-top-left-radius: 50%;
+    border-bottom-right-radius: 50%;
+  }
+}
+
+.contact-title {
+  font-size: 7rem;
+  text-transform: uppercase;
+  border-bottom: 1px dashed #fff;
+  margin: 20px 0;
+  letter-spacing: 3px;
+}
+.contact-form {
+  max-width: 450px;
+  margin: 0 auto;
+}
+.form-box {
+  display: flex;
+  flex-direction: column-reverse;
+  margin-bottom: 15px;
+}
+.contact-entry {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin: 10px 0;
+  border: 3px solid;
+  font-size: 1.2rem;
+  border: none;
+  outline: none;
+}
+.contact-entry:focus {
+  color: var(--darkerPrimary-color);
+}
+.contact-textarea {
+  resize: none;
+  height: 200px;
+}
+.contact-label {
+  font-size: 2rem;
+  font-weight: bold;
+  font-style: italic;
+  cursor: pointer;
+}
+.contact-entry:focus + .contact-label {
+  color: var(--primary-color);
+}
+.contact-btn {
+  padding: 10px 40px;
+  background-color: var(--action-color);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.5s ease;
+}
+.contact-btn:hover {
+  background-color: var(--darkerAction-color);
+}
+.contact-error {
+  color: var(--errors-color);
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+@media only screen and (max-width: 768px) {
+  .contact-title {
+    font-size: 3.5rem;
+  }
+  .contact-form {
+    max-width: 250px;
+  }
+  .contact-label {
+    font-size: 1.8rem;
+  }
+}
+@media only screen and (max-width: 375px) {
+  .contact-title {
+    font-size: 2.5rem;
+  }
+  .contact-label {
+    font-size: 1.2rem;
+  }
+  .contact-entry,
+  .contact-textarea {
+    font-size: 0.95rem;
+  }
+}
