@@ -1,0 +1,109 @@
+.contactContainer {
+  height: 100vh;
+  color: var(--fourth-color);
+  background-color: var(--second-color);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+}
+
+.title {
+  width: max-content;
+  margin: 0 auto;
+  font-size: 6rem;
+  text-transform: uppercase;
+  padding: 10px;
+  color: var(--third-color);
+}
+.description {
+  width: 60%;
+  margin: 0 auto;
+  font-size: 2rem;
+  letter-spacing: 2px;
+  line-height: 1.5;
+  opacity: 0.9;
+}
+.contactBox {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+.locationBox,
+.phoneBox {
+  width: 450px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid var(--fifth-color);
+  padding: 20px;
+}
+.contactIcon {
+  color: var(--third-color);
+}
+.contactDetails {
+  flex-grow: 1;
+  text-align: left;
+}
+.contactDetails > p {
+  margin-bottom: 10px;
+}
+.contactDetails p:last-child {
+  margin-bottom: 0;
+}
+.anotherContact {
+  display: flex;
+  gap: 20px;
+}
+.anotherContactLink {
+  cursor: pointer;
+  transition: color 0.5s ease;
+}
+.anotherContactLink:hover {
+  color: var(--third-color);
+}
+
+@media (max-width: 1250px) {
+  .description {
+    font-size: 1.5rem;
+  }
+  .contactBox {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 1024px) {
+  .contactContainer {
+    background-color: var(--first-color);
+    justify-content: flex-end;
+    gap: 20px;
+  }
+  .title {
+    font-size: 2rem;
+  }
+  .description {
+    width: 90%;
+    font-size: 0.8rem;
+  }
+  .contactBox {
+    align-items: center;
+  }
+  .phoneBox,
+  .locationBox {
+    width: 100%;
+    padding: 10px;
+    flex-direction: column;
+    gap: 10px;
+    border: none;
+  }
+  .contactDetails {
+    text-align: center;
+    font-size: 0.8rem;
+  }
+  .contactIcon {
+    width: 25%;
+    height: 55%;
+  }
+}
