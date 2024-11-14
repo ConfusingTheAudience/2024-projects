@@ -1,0 +1,123 @@
+.pricing-container {
+  height: 100vh;
+  background-color: var(--tertiary-color);
+}
+.pricing-heading {
+  color: var(--neutral-white);
+}
+.prices {
+  display: flex;
+  width: 90%;
+  margin-top: 100px;
+  margin-left: auto;
+  border-bottom-left-radius: var(--border-radius-55);
+  border-top-right-radius: var(--border-radius-55);
+  background-color: var(--primary-color);
+}
+.price-option {
+  flex-grow: 1;
+  padding: 30px;
+  color: var(--neutral-white);
+  text-align: center;
+  position: relative;
+  z-index: 2;
+  overflow: hidden;
+}
+.price-icon-bg {
+  /* reusable properties from icon-bg */
+  color: var(--iconToPrimary-color);
+  opacity: 0.4;
+}
+.price-icon-bg-1 {
+  transform: rotate(-45deg);
+}
+.price-icon-bg-2 {
+  transform: translateX(-50%);
+  opacity: 0.1;
+}
+.price-icon-bg-3 {
+  transform: translateY(10px);
+}
+.price-option-2 {
+  color: var(--primary-color);
+  background-color: var(--neutral-white);
+  position: relative;
+  top: 50px;
+  border-bottom-left-radius: var(--border-radius-55);
+  border-top-right-radius: var(--border-radius-55);
+}
+.price-option1,
+.price-option3 {
+  display: flex;
+  flex-direction: column;
+}
+.price-option h2 {
+  font-size: var(--font-3);
+}
+.price-option p {
+  width: max-content;
+  margin: 0 auto;
+  font-weight: bold;
+  color: var(--secondary-color);
+  font-size: var(--font-0u8);
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 5px 10px;
+}
+.price-option ul li {
+  font-weight: bold;
+  list-style-type: none;
+  margin: 10px 0;
+}
+.price-option ul li:last-child {
+  margin-bottom: 40px;
+}
+.price-option ul .special {
+  font-style: italic;
+  color: var(--tertiary-color);
+}
+.price-option button {
+  width: max-content;
+  margin: 0 auto;
+  margin-top: auto;
+  font-size: var(--font-2);
+  color: var(--neutral-white);
+  background-color: var(--secondary-color);
+  padding: 20px 50px;
+  border: var(--border-width-1) solid transparent;
+  border-radius: var(--border-radius-8);
+  cursor: pointer;
+  transition: all 0.7s ease-in-out;
+}
+.price-option button:hover {
+  color: var(--secondary-color);
+  background-color: var(--neutral-white);
+  border: var(--border-width-1) solid var(--secondary-color);
+}
+
+@media only screen and (max-width: 1280px) {
+  .pricing-container {
+    height: 100%;
+    padding: 100px 0;
+  }
+  .prices {
+    flex-direction: column;
+  }
+  .price-option-2 {
+    top: 0;
+    left: -20px;
+  }
+}
+@media only screen and (max-width: 600px) {
+  .prices {
+    width: 100%;
+  }
+  .price-option-2 {
+    left: 0;
+  }
+  .prices,
+  .price-option-1,
+  .price-option-2,
+  .price-option-3 {
+    border-radius: var(--border-radius-reset);
+  }
+}

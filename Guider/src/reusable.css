@@ -1,0 +1,176 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&display=swap");
+
+:root {
+  /* main colors */
+  --primary-color: #f1807e;
+  --secondary-color: #84fa84;
+  --tertiary-color: #4b9cd3;
+
+  --iconToPrimary-color: #fca09e;
+  --hoverToTertiary-color: #3286be;
+
+  /* neutral common */
+  --neutral-white: #fff;
+  --neutral-white-01: #f0f8ff;
+  --neutral-black: #000;
+  --neutral-black-01: #333;
+
+  /* bridge and footer gradient */
+  --bg-bridge-gradient1: #5072a7;
+  --bg-bridge-gradient2: #4b9cd3;
+  /* side box gradient */
+  --side-box-gradient1: #f1807e;
+  --side-box-gradient2: #fca09d;
+
+  /* shadows */
+  --shadow-black-035: rgba(0, 0, 0, 0.35);
+  --shadow-black-07: rgba(0, 0, 0, 0.7);
+
+  /* borders */
+  --border-width-1: 1px;
+  --border-width-3: 3px;
+  --border-width-5: 5px;
+  --border-width-10: 10px;
+  --border-width-20: 20px;
+
+  /* border radius */
+  --border-radius-reset: 0;
+  --border-radius-2: 2px;
+  --border-radius-8: 8px;
+  --border-radius-15: 15px;
+  --border-radius-35: 35px;
+  --border-radius-55: 55px;
+
+  /* font sizes */
+  --font-0u6: 0.6rem;
+  --font-0u8: 0.8rem;
+  --font-1: 1rem;
+  --font-1u1: 1.1rem;
+  --font-1u2: 1.2rem;
+  --font-1u3: 1.3rem;
+  --font-1u4: 1.4rem;
+  --font-1u5: 1.5rem;
+  --font-1u6: 1.6rem;
+  --font-2: 2rem;
+  --font-2u4: 2.4rem;
+  --font-2u5: 2.5rem;
+  --font-3: 3rem;
+  --font-3u5: 3.5rem;
+  --font-4: 4rem;
+  --font-5: 5rem;
+  --font-8: 8rem;
+  --font-10: 10rem;
+  --font-11: 11rem;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  font-family: "Noto Sans JP", sans-serif;
+}
+
+/* scrollbar styling */
+::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+}
+::-webkit-scrollbar-track {
+  background-color: var(--neutral-white);
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb {
+  background-color: var(--tertiary-color);
+  border-radius: 10px;
+  border: 3px solid var(--neutral-white);
+}
+::-webkit-scrollbar-thumb:hover {
+  background-color: #5072a7;
+}
+
+/* spinner */
+.container-spinner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: var(--tertiary-color);
+}
+.spinner {
+  width: 64px;
+  height: 48px;
+  position: relative;
+  animation: split 1s ease-in infinite alternate;
+}
+.spinner::before,
+.spinner::after {
+  content: "";
+  position: absolute;
+  height: 48px;
+  width: 48px;
+  border-radius: 50%;
+  left: 0;
+  top: 0;
+  transform: translateX(-10px);
+  background: var(--primary-color);
+  backdrop-filter: blur(20px);
+}
+
+.spinner::after {
+  left: auto;
+  right: 0;
+  background: var(--secondary-color);
+  transform: translateX(10px);
+}
+
+@keyframes split {
+  0%,
+  25% {
+    width: 64px;
+  }
+  100% {
+    width: 148px;
+  }
+}
+
+/* for background icon */
+.icon-bg {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: -2;
+}
+/* To all new section title */
+.section-heading {
+  color: var(--primary-color);
+  font-size: var(--font-8);
+  text-align: center;
+}
+@media only screen and (max-width: 900px) {
+  .section-heading {
+    font-size: var(--font-4);
+  }
+}
+@media screen and (max-width: 375px) {
+  .section-heading {
+    font-size: var(--font-3);
+  }
+}
+
+/* BREAKPOINTS */
+/* 
+mainpage - 1440 / 900 / 600 / 375
+about - 1280 / 600 
+pricing - 1280 / 600
+places - 1280 / 375
+contact - 1280
+footer - 900 / 600
+*/

@@ -1,0 +1,212 @@
+.mainpage-container {
+  position: relative;
+  height: 100vh;
+  background-image: linear-gradient(
+    to right top,
+    var(--bg-bridge-gradient1),
+    var(--bg-bridge-gradient2)
+  );
+}
+
+/* background layout */
+.bridge-bg {
+  width: 100%;
+  height: 100%;
+  background-image: url(/src/assets/bridge.png);
+  background-size: cover;
+  background-position: right center;
+  background-repeat: no-repeat;
+}
+/* main text */
+.text-box {
+  position: absolute;
+  top: 20px;
+  left: 300px;
+  color: var(--primary-color);
+}
+.text-box h1 {
+  font-size: var(--font-11);
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  text-shadow: 2px 2px 5px var(--shadow-black-07);
+  position: relative;
+  user-select: none;
+}
+.text-box h1::after {
+  content: "Hello!";
+  position: absolute;
+  top: -5px;
+  left: -5px;
+}
+.text-box p {
+  font-size: var(--font-1u5);
+  margin-bottom: 10px;
+}
+.text-box span {
+  width: max-content;
+  margin: 0 auto;
+  font-size: var(--font-1u6);
+  font-weight: bold;
+  border-bottom: var(--border-width-3) solid var(--secondary-color);
+  color: var(--secondary-color);
+  cursor: pointer;
+}
+
+/* info about person */
+.guide-info {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  padding: 5px;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: var(--border-radius-8);
+  animation: showGuideInfo 3s forwards;
+}
+@keyframes showGuideInfo {
+  0% {
+    opacity: 0.2;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+.guide-info img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  margin-bottom: 10px;
+  border: var(--border-width-3) solid var(--secondary-color);
+}
+
+/* additional side box */
+.side-box {
+  width: 250px;
+  height: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: absolute;
+  z-index: 2;
+  left: 0;
+  bottom: 0;
+  background-image: linear-gradient(
+    to right top,
+    var(--side-box-gradient1),
+    var(--side-box-gradient2)
+  );
+  border-top-right-radius: var(--border-radius-15);
+  border-bottom-right-radius: var(--border-radius-15);
+  text-align: center;
+  font-size: var(--font-2);
+  gap: 15px;
+}
+.side-box-bg {
+  /* reusable properties from icon-bg */
+  color: var(--iconToPrimary-color);
+}
+.side-box p {
+  font-weight: bold;
+  color: var(--neutral-white-01);
+  animation: slideText 2s forwards;
+}
+.side-box p:nth-child(2) {
+  animation-duration: 4s;
+}
+.side-box p:nth-child(3) {
+  animation-duration: 3s;
+}
+@keyframes slideText {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+.arrow-icon {
+  font-size: var(--font-3u5);
+  margin: 0 auto;
+  color: var(--neutral-black);
+  opacity: 0.8;
+  cursor: pointer;
+  animation: moveIcon 5s infinite;
+}
+@keyframes moveIcon {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(10px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+.arrow-icon:hover {
+  animation: none;
+  opacity: 1;
+}
+
+@media screen and (max-width: 1440px) {
+  .text-box h1 {
+    font-size: var(--font-10);
+  }
+}
+
+@media only screen and (max-width: 900px) {
+  .text-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .text-box {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  .text-box h1 {
+    font-size: 6rem;
+  }
+  .text-box h1::after {
+    content: "";
+  }
+  .text-box p {
+    font-size: var(--font-2u4);
+  }
+  .text-box span {
+    display: block;
+    font-size: var(--font-2u5);
+  }
+  .side-box {
+    height: 300px;
+  }
+  .guide-info {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .side-box {
+    width: 100%;
+    height: 35%;
+    border-top-left-radius: var(--border-radius-15);
+    border-bottom-right-radius: var(--border-radius-reset);
+  }
+  .text-box h1 {
+    font-size: var(--font-3);
+  }
+  .text-box p {
+    font-size: var(--font-1u4);
+  }
+  .text-box span {
+    display: block;
+    font-size: var(--font-1u5);
+  }
+}
+
+@media screen and (max-width: 375px) {
+  .bridge-bg {
+    height: 65%;
+  }
+}

@@ -1,0 +1,202 @@
+.places-container {
+  padding: 100px 0;
+}
+.places-box {
+  display: flex;
+  padding: 40px 0;
+}
+/* left side */
+.phone {
+  width: 50%;
+}
+.smartphone {
+  width: 350px;
+  height: 600px;
+  background-color: var(--neutral-black-01);
+  border-radius: var(--border-radius-35);
+  position: relative;
+  overflow: hidden;
+  border: var(--border-width-5) solid var(--neutral-black);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  left: -80px;
+  transform: rotate(45deg);
+  user-select: none;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+.smartphone .smartphone-text {
+  text-align: center;
+  padding-top: 50px;
+  font-size: var(--font-1u5);
+  color: var(--primary-color);
+  letter-spacing: 3px;
+}
+.smartphone .smartphone-message {
+  display: block;
+  width: max-content;
+  background-color: var(--primary-color);
+  color: var(--neutral-white);
+  padding: 10px 50px;
+  margin-top: 100px;
+  font-size: var(--font-0u6);
+  font-weight: bold;
+  text-transform: uppercase;
+}
+.smartphone .smartphone-message-1 {
+  position: relative;
+  margin-left: 10px;
+}
+.smartphone .smartphone-message-1::before {
+  content: "";
+  position: absolute;
+  left: -10px;
+  bottom: -10px;
+  width: 0;
+  height: 0;
+  border-left: var(--border-width-10) solid transparent;
+  border-right: var(--border-width-10) solid transparent;
+  border-top: var(--border-width-20) solid var(--primary-color);
+  transform: rotate(45deg);
+}
+.smartphone .smartphone-message-2 {
+  position: relative;
+  align-self: flex-end;
+  margin-right: 10px;
+  background-color: var(--tertiary-color);
+}
+.smartphone .smartphone-message-2::before {
+  content: "";
+  position: absolute;
+  right: -10px;
+  bottom: -10px;
+  width: 0;
+  height: 0;
+  border-left: var(--border-width-10) solid transparent;
+  border-right: var(--border-width-10) solid transparent;
+  border-top: var(--border-width-20) solid var(--tertiary-color);
+  transform: rotate(-45deg);
+}
+.smartphone::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 120px;
+  height: 24px;
+  background-color: var(--neutral-white);
+  border-bottom-left-radius: var(--border-radius-15);
+  border-bottom-right-radius: var(--border-radius-15);
+}
+.smartphone::after {
+  content: "";
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 6px;
+  background-color: var(--neutral-white-01);
+  border-radius: var(--border-radius-55);
+}
+
+/* right side */
+.places {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+.single-place {
+  width: 340px;
+  height: 200px;
+  position: relative;
+  cursor: pointer;
+}
+.overlay {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-top-right-radius: var(--border-radius-55);
+  border-bottom-left-radius: var(--border-radius-55);
+}
+.place-info {
+  display: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: var(--neutral-white);
+}
+.place-info h3 {
+  color: var(--secondary-color);
+  font-size: var(--font-2);
+}
+.place-info p {
+  font-size: var(--font-0u8);
+}
+.single-place:hover .overlay {
+  display: block;
+}
+.single-place:hover .place-info {
+  display: block;
+}
+.place-block {
+  width: 100%;
+  height: 100%;
+  border-top-right-radius: var(--border-radius-55);
+  border-bottom-left-radius: var(--border-radius-55);
+}
+
+/* 4th square */
+.place-block-4 {
+  color: var(--neutral-white);
+  background-color: var(--tertiary-color);
+  padding: 25px 50px;
+}
+.single-place-last {
+  z-index: -1;
+}
+.info-bg {
+  opacity: 0.1;
+  z-index: 0;
+}
+
+@media only screen and (max-width: 1280px) {
+  .places-box {
+    flex-direction: column;
+    gap: 50px;
+    padding: 50px 0;
+  }
+  .phone,
+  .places {
+    width: 100%;
+  }
+  .phone {
+    display: flex;
+    justify-content: center;
+  }
+  .places {
+    flex-direction: column;
+    align-items: center;
+  }
+  .smartphone {
+    transform: rotate(0);
+    left: 0;
+  }
+}
+@media only screen and (max-width: 375px) {
+  .smartphone {
+    width: 300px;
+  }
+  .single-place {
+    width: 300px;
+  }
+}
