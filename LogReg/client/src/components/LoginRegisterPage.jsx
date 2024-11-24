@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const LoginPanel = () => {
+const LoginPage = ({ onLoginSuccess }) => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -16,6 +16,29 @@ const LoginPanel = () => {
     } else {
       setError("");
       console.log("Logged in:", { email, password });
+
+      fetch("http://localhost:5000/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          email,
+          password,
+        }),
+      })
+        .then((response) => response.json())
+        .then((data) => {
+          if (data.message === "Login successful") {
+            onLoginSuccess(true);
+          } else {
+            setError(data.message);
+          }
+        })
+        .catch((error) => {
+          setError("An error occurred while logging in.");
+          console.error("Error:", error);
+        });
     }
   };
 
@@ -27,6 +50,32 @@ const LoginPanel = () => {
     } else {
       setError("");
       console.log("Registered:", { name, email, password });
+
+      fetch("http://localhost:5000/register", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          name,
+          email,
+          password,
+        }),
+      })
+        .then((response) => {
+          if (!response.ok) {
+            return response.json().then((data) => {
+              throw new Error(data.message || "Registration failed");
+            });
+          }
+          return response.json();
+        })
+        .then((data) => {
+          console.log("Registration successful:", data);
+        })
+        .catch((error) => {
+          setError(error.message);
+        });
     }
   };
 
@@ -154,4 +203,4 @@ const LoginPanel = () => {
   );
 };
 
-export default LoginPanel;
+export default LoginPage;
