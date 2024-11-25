@@ -28,7 +28,10 @@ app.post("/login", (request, response) => {
   );
 
   if (user) {
-    return response.status(200).json({ message: "Login successful" });
+    return response.status(200).json({
+      message: "Login successful",
+      user: { name: user.name },
+    });
   } else {
     return response.status(400).json({ message: "Invalid email or password" });
   }
@@ -60,7 +63,6 @@ app.post("/register", (request, response) => {
 app.get("/registered/users", (request, response) => {
   console.log(response.send(users));
 });
-
 
 app.listen(PORT, () => {
   console.log(`Running on Port ${PORT}`);

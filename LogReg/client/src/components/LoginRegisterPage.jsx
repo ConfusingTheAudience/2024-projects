@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const LoginPage = ({ onLoginSuccess }) => {
+const LoginRegisterPage = ({ onLoginSuccess }) => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -15,6 +15,8 @@ const LoginPage = ({ onLoginSuccess }) => {
       setError("Please enter all data");
     } else {
       setError("");
+      setEmail("");
+      setPassword("");
       console.log("Logged in:", { email, password });
 
       fetch("http://localhost:5000/login", {
@@ -30,7 +32,7 @@ const LoginPage = ({ onLoginSuccess }) => {
         .then((response) => response.json())
         .then((data) => {
           if (data.message === "Login successful") {
-            onLoginSuccess(true);
+            onLoginSuccess(data.user.name);
           } else {
             setError(data.message);
           }
@@ -49,6 +51,10 @@ const LoginPage = ({ onLoginSuccess }) => {
       setError("Please enter all data and make sure passwords match");
     } else {
       setError("");
+      setEmail("");
+      setPassword("");
+      setConfirmPassword("");
+      setName("");
       console.log("Registered:", { name, email, password });
 
       fetch("http://localhost:5000/register", {
@@ -203,4 +209,4 @@ const LoginPage = ({ onLoginSuccess }) => {
   );
 };
 
-export default LoginPage;
+export default LoginRegisterPage;

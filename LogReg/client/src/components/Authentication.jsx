@@ -4,13 +4,24 @@ import LoginRegisterPage from "./LoginRegisterPage";
 
 const Authentication = () => {
   const [showDashboard, setShowDashboard] = useState(false);
+  const [userName, setUserName] = useState("");
+
+  const handleLoginSuccess = (name) => {
+    setUserName(name);
+    setShowDashboard(true);
+  };
+
+  const handleLogout = () => {
+    setUserName("");
+    setShowDashboard(false);
+  };
 
   return (
     <div>
       {showDashboard ? (
-        <Dashboard />
+        <Dashboard loggedUsername={userName} onLogout={handleLogout} />
       ) : (
-        <LoginRegisterPage onLoginSuccess={setShowDashboard} />
+        <LoginRegisterPage onLoginSuccess={handleLoginSuccess} />
       )}
     </div>
   );
