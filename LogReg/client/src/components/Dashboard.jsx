@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 
-const Dashboard = ({ loggedUsername, loggedUsernameEmail, onLogout }) => {
+const Dashboard = ({ loggedUsername, loggedEmail, onLogout }) => {
   const [movies, setMovies] = useState([]);
   const [title, setTitle] = useState("");
   const [viewDate, setViewDate] = useState("");
@@ -13,7 +13,7 @@ const Dashboard = ({ loggedUsername, loggedUsernameEmail, onLogout }) => {
   }, [movies]);
 
   const fetchMovies = () => {
-    fetch(`http://localhost:5000/movies?email=${loggedUsernameEmail}`)
+    fetch(`http://localhost:5000/movies?email=${loggedEmail}`)
       .then((response) => response.json())
       .then((data) => setMovies(data))
       .catch((error) => setError("Failed to fetch movies"));
@@ -30,7 +30,7 @@ const Dashboard = ({ loggedUsername, loggedUsernameEmail, onLogout }) => {
     }
     setError("");
 
-    const newMovie = { title, viewDate, rating, email: loggedUsernameEmail };
+    const newMovie = { title, viewDate, rating, email: loggedEmail };
 
     fetch("http://localhost:5000/movies", {
       method: "POST",
