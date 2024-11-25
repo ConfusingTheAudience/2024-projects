@@ -19,6 +19,9 @@ Login Register Movies add/delete
 - **Add / Delete movies**: Logged in user can see his own collection of movies and can add or delete them
 - **Logout**: When you log off, you don't lose your collection, you can switch accounts
 </br >
+  
+- **GIT**: GIT in use
+</br >
 </br >
   
 - **Deeper info**: server > data > data.mjs for users and movies lists
