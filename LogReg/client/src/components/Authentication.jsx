@@ -5,6 +5,11 @@ import LoginRegisterPage from "./LoginRegisterPage";
 const Authentication = () => {
   const [showDashboard, setShowDashboard] = useState(false);
   const [userName, setUserName] = useState("");
+  const [userNameEmail, setUserNameEmail] = useState("");
+
+  const getUsernameEmail = (email) => {
+    setUserNameEmail(email);
+  };
 
   const handleLoginSuccess = (name) => {
     setUserName(name);
@@ -19,9 +24,9 @@ const Authentication = () => {
   return (
     <div>
       {showDashboard ? (
-        <Dashboard loggedUsername={userName} onLogout={handleLogout} />
+        <Dashboard loggedUsername={userName} loggedUsernameEmail={userNameEmail} onLogout={handleLogout} />
       ) : (
-        <LoginRegisterPage onLoginSuccess={handleLoginSuccess} />
+        <LoginRegisterPage onLoginSuccess={handleLoginSuccess} getUsernameEmail={getUsernameEmail}/>
       )}
     </div>
   );

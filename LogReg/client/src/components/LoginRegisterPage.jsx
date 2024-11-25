@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const LoginRegisterPage = ({ onLoginSuccess }) => {
+const LoginRegisterPage = ({ onLoginSuccess, getUsernameEmail }) => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -17,7 +17,6 @@ const LoginRegisterPage = ({ onLoginSuccess }) => {
       setError("");
       setEmail("");
       setPassword("");
-      console.log("Logged in:", { email, password });
 
       fetch("http://localhost:5000/login", {
         method: "POST",
@@ -33,13 +32,13 @@ const LoginRegisterPage = ({ onLoginSuccess }) => {
         .then((data) => {
           if (data.message === "Login successful") {
             onLoginSuccess(data.user.name);
+            getUsernameEmail(email);
           } else {
             setError(data.message);
           }
         })
         .catch((error) => {
           setError("An error occurred while logging in.");
-          console.error("Error:", error);
         });
     }
   };
@@ -55,7 +54,6 @@ const LoginRegisterPage = ({ onLoginSuccess }) => {
       setPassword("");
       setConfirmPassword("");
       setName("");
-      console.log("Registered:", { name, email, password });
 
       fetch("http://localhost:5000/register", {
         method: "POST",
