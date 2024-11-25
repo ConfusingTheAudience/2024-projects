@@ -10,7 +10,7 @@ export const users = [
 export const movies = [
   {
     id: 1,
-    title: "Thsi is admin movie",
+    title: "This is admin movie",
     viewDate: "2024-10-31",
     rating: 3,
     email: "Admin@gmail.com",
