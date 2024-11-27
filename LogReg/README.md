@@ -24,6 +24,10 @@ Login Register Movies add/delete
 </br >
 </br >
   
-- **Deeper info**: server > data > data.mjs for users and movies lists
-
+- **Deeper info**: server > src > data > data.mjs for users and movies lists
 ---
+
+![Login](images/logregsc1.png) 
+![Register](images/logregsc2.png) 
+![Dashboard](images/logregsc3.png)
+
