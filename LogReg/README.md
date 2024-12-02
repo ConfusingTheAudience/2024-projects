@@ -1,6 +1,21 @@
 # LogReg
-Login Register Movies add/delete
+ &nbsp; Login Register Movies add/delete
 ---
+
+<br />
+<br />
+
+## **Instalation**
+Server (Express) start command:
+
+```bash
+npm run start:dev
+```
+Client (React) start command:
+
+```bash
+npm run dev
+```
 
 ## **Info**
 
@@ -21,6 +36,7 @@ Login Register Movies add/delete
 </br >
   
 - **GIT**: GIT in use
+- **CSS**: Tailwind in use
 </br >
 </br >
   
