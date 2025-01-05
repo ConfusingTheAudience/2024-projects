@@ -1,0 +1,41 @@
+@import url("https://fonts.googleapis.com/css2?family=Andada+Pro:ital,wght@0,400..840;1,400..840&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Andada+Pro:ital,wght@0,400..840;1,400..840&family=K2D:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap");
+
+:root {
+  --main-color: #8d0b41;
+  --secondary-color: #d39d55;
+  --third-color: #d6cfb4;
+  --fourth-color: #fff8e6;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+html,
+body {
+  height: 100%;
+}
+body {
+  /* font-family: "Andada Pro", serif; - this is second font */
+  font-family: "K2D", sans-serif;
+  background-color: var(--fourth-color);
+  color: var(--main-color);
+  min-height: 100%;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #fff;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--main-color);
+  cursor: pointer;
+}
+
+/* 16px equals 1em */
+/* fonts:  Andada Pro - serif & K2D - sans-serif*/

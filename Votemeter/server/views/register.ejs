@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Votemeter - Register</title>
+    <%- include('partials/favicon') %>
+    <link rel="stylesheet" href="/styles/style.css" />
+    <link rel="stylesheet" href="/styles/register.css" />
+  </head>
+  <body>
+    <div class="background">
+      <video
+        id="background-video"
+        class="background__video"
+        autoplay
+        muted
+        loop
+      >
+        <source src="/videos/games.mp4" type="video/mp4" />
+      </video>
+    </div>
+    <div class="overlay"></div>
+    <div class="form">
+      <h1>Register</h1>
+      <form id="register-form" method="POST" novalidate>
+        <div id="error-message" class="form__error"></div>
+        <div>
+          <label for="email">Email</label>
+          <input type="text" name="email" id="email" />
+        </div>
+        <div>
+          <label for="username">Username</label>
+          <input type="text" name="username" id="username" />
+        </div>
+        <div>
+          <label for="password">Password</label>
+          <input type="password" name="password" id="password" />
+        </div>
+        <div>
+          <label>Choose category you are interested in:</label>
+          <div class="box">
+            <input
+              type="radio"
+              id="category-games"
+              class="radio__input"
+              name="category"
+              value="games"
+              checked
+            />
+            <label for="category-games" class="radio__label">Games</label>
+          </div>
+          <div class="box">
+            <input
+              type="radio"
+              id="category-music"
+              class="radio__input"
+              name="category"
+              value="music"
+            />
+            <label for="category-music" class="radio__label">Music</label>
+          </div>
+          <div class="box">
+            <input type="radio" id="category-art" class="radio__input" name="category" value="art" />
+            <label for="category-art" class="radio__label">Art</label>
+          </div>
+        </div>
+        <button type="submit" class="form__button">Register</button>
+      </form>
+      <p class="prompt">
+        Already have an account? <a href="/login">Login here</a>
+      </p>
+    </div>
+
+    <script src="/js/register.js"></script>
+  </body>
+</html>

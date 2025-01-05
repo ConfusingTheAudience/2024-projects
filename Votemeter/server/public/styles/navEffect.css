@@ -1,0 +1,16 @@
+/* Navigation for scroll change */
+#nav-sticky {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 999;
+  transition: opacity 0.3s;
+}
+#nav-sticky.transparent {
+  opacity: 0.4;
+}
+
+/* NOTE */
+/* with js/utils/navEffect.js */
+/* URLS USING: Home, My Rates */

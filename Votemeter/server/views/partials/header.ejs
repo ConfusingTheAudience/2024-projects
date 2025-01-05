@@ -1,0 +1,27 @@
+<link rel="stylesheet" href="styles/header.css" />
+
+<header class="navigation">
+  <h1 class="navigation__logo">
+    <a href="/" class="navigation__homeLink">Votemeter</a>
+    <i class="fi fi-brands-artstation"></i>
+  </h1>
+  <div class="navigation__toggle" id="menu-toggle">
+    <i class="fi fi-rr-menu-burger navigation__icon hamburger"></i>
+    <i class="fi fi-br-cross-small navigation__icon close"></i>
+  </div>
+  <nav class="navigation__nav" id="navigation-menu">
+    <% if (user) { %>
+    <h3 class="mobile__title">Menu</h2>
+    <a href="/discover" class="navigation__link" id="discover-link">Discover</a>
+    <a href="/my-rates" class="navigation__link" id="my-rates-link">My Rates</a>
+    <a href="/profile" class="navigation__link" id="profile-link">Profile</a>
+    <% } else { %>
+    <h3 class="mobile__title">Menu</h2>
+    <a href="/" class="navigation__link" id="home-link">Home</a>
+    <a href="/login" class="navigation__link" id="login-link">Login</a>
+    <a href="/register" class="navigation__link" id="register-link">Register</a>
+    <% } %>
+  </nav>
+</header>
+
+<script src="/js/header.js"></script>

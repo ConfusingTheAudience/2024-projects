@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Votemeter - My Rates</title>
+    <%- include('partials/favicon') %> <%- include('partials/logo') %>
+    <link rel="stylesheet" href="styles/style.css" />
+    <link rel="stylesheet" href="styles/navEffect.css" />
+    <link rel="stylesheet" href="styles/myRates.css" />
+  </head>
+  <body>
+    <div id="nav-sticky"><%- include('partials/header') %></div>
+    <main>
+      <h1 class="ratings__title">My Ratings</h1>
+
+      <div class="ratings__content">
+        <% if (user.ratings.length === 0) { %>
+        <p class="ratings__noContent">You have no votes yet <i class="fi fi-tr-face-sad-sweat ratings__noContentIcon"></i></p>
+        <% } else { %>
+        <ul
+          class="ratings__rates <%= user.ratings.length < 6 ? 'ratings__NoRates' : 'ratings_thereAreRates' %>"
+        >
+          <div class="ratings__swap">
+            <i id="option-1" class="fi fi-ss-apps ratings__swapIcon"></i>
+            <i id="option-2" class="fi fi-sr-list ratings__swapIcon"></i>
+          </div>
+          <% user.ratings.forEach((rating) => { %>
+          <li class="ratings__item">
+            <span class="ratings__c">
+              <i class="fi fi-rs-book-bookmark ratings__icon"></i>Title: <%=
+              rating.item %>
+            </span>
+            <span class="ratings__c">
+              <i class="fi fi-sr-star ratings__icon"></i>Rate: <%= rating.rating
+              %>
+            </span>
+            <i
+              class="fi fi-rr-trash ratings__delete"
+              data-item="<%= rating.item %>"
+            ></i>
+          </li>
+          <% }); %>
+        </ul>
+        <% } %>
+
+        <div class="ratings__right">
+          <div class="ratings__badge">
+            <h2>Badge</h2>
+            <p class="badge__title"><%= userBadges %></p>
+            <p class="badge__info">
+              make more votes to get better badge (promotion is every 5)
+            </p>
+          </div>
+          <% if (user.ratings.length === 0) { %>
+          <p class="activity__noContent">There's no last activity</p>
+          <% } else { %>
+          <div class="ratings__activity">
+            <h2>Last rates</h2>
+            <% lastActivity.forEach((activity) => { %>
+            <div class="activity__item">
+              <span><strong>Title:</strong> <%= activity.item %></span>
+              <span><strong>Rating:</strong> <%= activity.rating %></span>
+            </div>
+            <% }); %>
+          </div>
+          <% } %>
+        </div>
+      </div>
+    </main>
+    <%- include('partials/footer') %>
+    <script src="/js/navigationChanger.js"></script>
+    <script src="/js/utils/navEffect.js"></script>
+    <script src="js/myRates.js"></script>
+  </body>
+</html>

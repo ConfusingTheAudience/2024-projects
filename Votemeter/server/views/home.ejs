@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Votemeter - Home</title>
+    <%- include('partials/favicon') %> <%- include('partials/logo') %>
+    <link rel="stylesheet" href="styles/style.css" />
+    <link rel="stylesheet" href="styles/home.css" />
+    <link rel="stylesheet" href="styles/navEffect.css" />
+  </head>
+  <body>
+    <div id="nav-sticky"><%- include('partials/header') %></div>
+
+    <main>
+      <section class="hero">
+        <h1 class="hero__title">Votemeter – Your world of ratings!</h1>
+        <p class="hero__description">
+          Join Votemeter to rate what you love – games, art, or music!
+        </p>
+        <div class="hero__btns">
+          <% if (!user) { %>
+          <a href="/register" class="hero__btn hero__btn-primary">Register</a>
+          <a href="/login" class="hero__btn hero__btn-secondary">Log In</a>
+          <% } else { %>
+          <a href="/discover" class="hero__btn hero__btn-primary">Discover</a>
+          <a href="/my-rates" class="hero__btn hero__btn-secondary"
+            >Your Rates</a
+          >
+          <% } %>
+        </div>
+      </section>
+
+      <section class="instruction">
+        <h2 class="instruction__title">How it's working?</h2>
+        <div class="instruction__steps">
+          <div class="step">
+            <h3 class="step__title">Step 1</h3>
+            <p class="step__description">Register and Log In</p>
+          </div>
+          <div class="step">
+            <h3 class="step__title">Step 2</h3>
+            <p class="step__description">
+              Choose category you are interested in
+            </p>
+          </div>
+          <div class="step">
+            <h3 class="step__title">Step 3</h3>
+            <p class="step__description">
+              Rate content and discover new passions!
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="benefits">
+        <h2 class="benefits__title">Why it's worth?</h2>
+        <div class="benefits__features">
+          <div class="feature">
+            <i class="fi fi-rr-hand-holding-seeding"></i>
+            <p class="feature__description">Get inspired</p>
+          </div>
+          <div class="feature">
+            <i class="fi fi-rr-ballot"></i>
+            <p class="feature__description">Track your ratings</p>
+          </div>
+          <div class="feature">
+            <i class="fi fi-rr-users-alt"></i>
+            <p class="feature__description">Compare to others</p>
+          </div>
+          <div class="feature">
+            <i class="fi fi-rr-social-network"></i>
+            <p class="feature__description">Share your toughts</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="categories">
+        <h2 class="categories__title">Categories</h2>
+        <div class="categories__sample">
+          <div class="item">
+            <img src="/images/gamer.gif" alt="Games" class="item__image" />
+            <p class="item__name">Games</p>
+          </div>
+          <div class="item">
+            <img src="images/singer.gif" alt="Music" class="item__image" />
+            <p class="item__name">Music (Singers)</p>
+          </div>
+          <div class="item">
+            <img src="images/art.gif" alt="Art" class="item__image" />
+            <p class="item__name">Art (Photos/Paintings)</p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <%- include('partials/footer') %>
+
+    <script src="/js/navigationChanger.js"></script>
+    <script src="/js/utils/navEffect.js"></script>
+  </body>
+</html>

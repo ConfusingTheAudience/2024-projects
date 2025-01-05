@@ -1,0 +1,125 @@
+/* Animations */
+@keyframes slideInUp {
+  from {
+    transform: translateY(-50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.navigation {
+  font-family: "Andada Pro", serif;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 72px; /* change sizes but same amount of height */
+  padding: 1em;
+  background-color: var(--secondary-color);
+}
+.navigation__logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+  color: #fff;
+  font-size: 2rem;
+}
+.navigation__homeLink {
+  color: var(--fourth-color);
+  text-decoration: none;
+}
+.navigation__link {
+  text-decoration: none;
+  color: var(--fourth-color);
+  margin-right: 0.94em;
+  transition: color 0.35s ease-in-out;
+}
+.navigation__link:hover {
+  opacity: 0.8;
+  color: var(--main-color);
+}
+.navigation__link-active {
+  font-weight: bold;
+  color: var(--main-color);
+}
+.navigation__link-active:hover {
+  opacity: 1;
+}
+
+/* Mobile */
+.navigation__toggle {
+  display: none;
+  cursor: pointer;
+  position: relative;
+}
+.navigation__icon {
+  font-size: 2rem;
+  color: white;
+}
+.navigation__icon.close {
+  display: none;
+}
+.navigation__nav {
+  display: flex;
+}
+.mobile__title {
+  display: none;
+}
+
+@media screen and (max-width: 768px) {
+  .navigation__logo {
+    font-size: 1.2rem;
+  }
+  .hero__description {
+    width: 70%;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .navigation__nav {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    background-color: var(--secondary-color);
+    position: absolute;
+    top: 60px;
+    left: 0;
+    z-index: 10;
+    padding: 1em;
+  }
+
+  .navigation__nav.active {
+    display: flex;
+    animation: slideInUp 0.8s ease-in-out;
+  }
+
+  .navigation__link {
+    margin: 1em 0;
+    color: white;
+    background: var(--main-color);
+    padding: 1em;
+    border-radius: 8px;
+  }
+
+  .navigation__toggle {
+    display: block;
+  }
+
+  .navigation__toggle.open .hamburger {
+    display: none; /* Hide hamburger icon */
+  }
+
+  .navigation__toggle.open .close {
+    display: block; /* Show close icon */
+  }
+
+  .navigation__link:hover {
+    opacity: 1;
+  }
+
+  .mobile__title {
+    display: block;
+  }
+}

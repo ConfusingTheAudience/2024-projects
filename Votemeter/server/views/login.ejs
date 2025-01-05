@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Votemeter - Login</title>
+    <%- include('partials/favicon') %>
+    <link rel="stylesheet" href="/styles/style.css" />
+    <link rel="stylesheet" href="/styles/login.css" />
+  </head>
+  <body>
+    <div class="background">
+      <img
+        src="/images/login-bg.jpg"
+        alt="login-bg"
+        class="background__image"
+      />
+    </div>
+    <div class="overlay"></div>
+    <div class="form">
+      <h1>Login</h1>
+      <form id="login-form" method="POST" novalidate>
+        <div id="error-message" class="form__error"></div>
+        <div>
+          <label for="username">Username</label>
+          <input type="text" name="username" id="username" />
+        </div>
+        <div>
+          <label for="password">Password</label>
+          <input type="password" name="password" id="password" />
+        </div>
+        <button type="submit" class="form__button">Login</button>
+      </form>
+      <p class="prompt">
+        Don't have an account? <a href="/register">Register here</a>
+      </p>
+    </div>
+
+    <script src="/js/login.js"></script>
+  </body>
+</html>

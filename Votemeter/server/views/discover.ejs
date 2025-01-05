@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Votemeter - Discover</title>
+    <%- include('partials/favicon') %> <%- include('partials/logo') %>
+    <link rel="stylesheet" href="styles/style.css" />
+    <link rel="stylesheet" href="styles/discover.css">
+  </head>
+  <body>
+    <%- include('partials/header') %>
+    <main>
+      <h1 class="discover__title">Discover</h1>
+      <div class="discover__content">
+        <div class="filter">
+          <h2 class="filter__title">Search</h2>
+          <div class="searchBar">
+            <i class="fi fi-rr-search searchBar__icon"></i>
+            <input type="text" class="searchBar__input" />
+          </div>
+          <h2 class="filter__title">Filter by</h2>
+          <ul id="category-list">
+            <li class="filter__list">All</li>
+            <% discoverCategory.forEach((category) => { %>
+            <li class="filter__list"><%= category %> <i class="fi fi-rr-cross-circle filter__close"></i></li>
+            <% }) %>
+          </ul>
+          <h2 class="filter__title">Sort by</h2>
+          <ul>
+            <li class="filter__sort">A-Z</li>
+            <li class="filter__sort">Z-A</li>
+            <li class="filter__sort">Best ratings</li>
+            <li class="filter__sort">Most votes</li>
+          </ul>
+        </div>
+        <% if (discoverItem.length > 0) { %>
+        <div id="displayer" class="displayer">
+          <ul id="items" class="items">
+            <% discoverItem.forEach((item) => { %>
+            <li class="items__list">
+              <h3 class="items__title"><%= item.name %></h3>
+              <div class="items__type">
+                <% item.type.forEach((type) => { %>
+                <span class="type"><%= type %></span>
+                <% }) %>
+              </div>
+  
+              <div class="items__position">
+                <div class="items__container">
+                  <img src="<%= item.url %>" alt="<%= item.name %>" class="items__gameImage" />
+                  <div class="items__average">
+                    <span>Av Rating: </span>
+                    <%= (isNaN(item.ratings.reduce((acc, rating) => acc + rating, 0) / item.ratings.length)) ? 0 : (item.ratings.reduce((acc, rating) => acc + rating, 0) / item.ratings.length).toFixed(1) %>
+                  </div>              
+    
+                  <div class="items__total">
+                    <span>Votes: </span>
+                    <%= item.totalRatings %>
+                  </div>
+                </div>
+    
+                 <div id="items__message" class="items__message">Vote added. Thanks!</div>
+    
+                <div class="item__ratings">
+                  <button
+                    class="rate__button"
+                    data-item="<%= item.name %>"
+                    data-rating="1"
+                  >
+                    1
+                  </button>
+                  <button
+                    class="rate__button"
+                    data-item="<%= item.name %>"
+                    data-rating="2"
+                  >
+                    2
+                  </button>
+                  <button
+                    class="rate__button"
+                    data-item="<%= item.name %>"
+                    data-rating="3"
+                  >
+                    3
+                  </button>
+                  <button
+                    class="rate__button"
+                    data-item="<%= item.name %>"
+                    data-rating="4"
+                  >
+                    4
+                  </button>
+                  <button
+                    class="rate__button"
+                    data-item="<%= item.name %>"
+                    data-rating="5"
+                  >
+                    5
+                  </button>
+                </div>
+              </div>
+            </li>
+            <% }); %>
+          </ul>
+        </div>
+        <% } else { %>
+        <p>No content available in your category.</p>
+        <% } %>
+      </div>
+    </main>
+
+    <%- include('partials/footer') %>
+    <script src="/js/navigationChanger.js"></script>
+    <script type="module" src="/js/discover.js"></script>
+    <script src="/js/discoverFilter.js"></script>
+    <script src="/js/discoverSort.js"></script>
+  </body>
+</html>

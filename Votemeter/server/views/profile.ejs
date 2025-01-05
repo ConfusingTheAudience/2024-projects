@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Votemeter - Profile</title>
+    <%- include('partials/favicon') %>
+    <%- include('partials/logo') %>
+    <link rel="stylesheet" href="styles/style.css" />
+    <link rel="stylesheet" href="styles/profile.css" />
+  </head>
+  <body>
+    <%- include('partials/header') %>
+
+    <main class="profile">
+
+      <div class="sidebar">
+        <button id="my-profile-btn" class="sidebar__button active">Profile</button>
+        <button id="settings-btn" class="sidebar__button">Settings</button>
+        <form action="/api/profile/logout" method="POST" class="sidebar__logout">
+          <button type="submit" id="logout-btn" class="sidebar__button sidebar__button-logout">Log me out</button>
+        </form>
+      </div>
+      
+      <div class="content">
+        
+        <!-- Account section -->
+        <div id="profile-info" class="account content__section">
+          <h2 class="account__title">My Profile</h2>
+          <p class="account__description">Email: <span class="account__detail"><%= user.email %></span></p>
+          <p class="account__description">Name: <span class="account__detail"><%= user.username %></span></p>
+          <p class="account__description">Your category: <span class="account__detail"><%= user.category %></span></p>
+          <p class="account__description">Ratings Made: <span class="account__detail"><%= user.ratings.length %></span></p>
+          <p class="account__description">Ranking Position: <span class="account__detail"><%= userRank %>/<%= totalUsersInCategory %></span></p>
+          <p class="account__description">All users: <span class="account__detail"><%= totalUsers %></span></p>
+        </div>
+
+        <!-- Settings section -->
+        <div id="settings-info" class="settings content__section" style="display: none;">
+          <h2 class="update__title">Change account details</h2>
+          <form id="update-form" method="POST">
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" value="<%= user.email %>" required /><br><br>
+            
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" value="<%= user.username %>" required /><br><br>
+            
+            <button type="submit" class="update__button">Save Changes</button>
+          </form>
+
+          <span id="update-message" class="update__message">Profile updated successfully!</span>
+
+          <h2 class="delete__title">Delete all your votes</h2>
+          <form id="delete-votes-form" method="POST">
+            <button type="submit" class="delete__button">Delete</button>
+          </form>
+          <span id="delete-message" class="delete__message">Your votes have been deleted</span>
+
+        </div>
+      </div>
+
+    </main>
+
+    <script src="/js/navigationChanger.js"></script>
+    <script type="module" src="/js/profileChanger.js"></script>
+    <script type="module" src="/js/profileSettings.js"></script>
+  </body>
+</html>
