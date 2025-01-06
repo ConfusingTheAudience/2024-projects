@@ -6,7 +6,9 @@
 
 * **Changes**: Things related to voting such as voting and deleting them are blocked, also update profile. The change between what is on github and what is in the production version is due to the fact that vercel is serverless<br />
 
-<b>If you want full capabilities you must use the github code locally</b> <br />
+```diff
+- If you want full capabilities you must use the github code locally -
+```
 
 I use cookies instead of sessions in production <br />
 
