@@ -15,8 +15,7 @@ To run this project (be aware to be on server folder)
 
 ## **Info**
 
-- **Load spinner**: Load spinner works the first time the page is opened only
-- **Summary page**: If you go to the summary page by typing the link directly, the form will wait with the action until you choose a plan (the button also gives you text “Choose plan”). (It does not work on vercel)
+- **X**: X
 
 
 
