@@ -1,14 +1,14 @@
 # Votemeter
 
 **Live site: https://cta-votemeter-2024.vercel.app/**  
+```diff
+- If you want full capabilities you must use the github code locally -
+```
 * **Used**: Express + EJS <br />
 * **Version**: The version available on github works locally, for the production version I needed to make some changes by which some functions do not work as they should <br />
 
 * **Changes**: Things related to voting such as voting and deleting them are blocked, also update profile. The change between what is on github and what is in the production version is due to the fact that vercel is serverless<br />
 
-```diff
-- If you want full capabilities you must use the github code locally -
-```
 
 I use cookies instead of sessions in production <br />
 
