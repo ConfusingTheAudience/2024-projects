@@ -24,7 +24,17 @@ After registration in the local environment, the user is redirected to the login
 
 After removing all votes from the profile in settings also displays a message about the successful removal, while in production the user is redirected to the profile page <br />
 
-* **Used**: Express + EJS <br />
+* **Testing**: Users to test <br />
+
+In production, if a user registers and then logs out, it destroys the cookie, which means that the user will cease to exist <br />
+
+I hash only three users for demo purposes <br />
+
+Login: Admin <br /> Password: 1234 <br /> - category is game <br />
+
+Login: Max <br /> Password: 1111 <br /> - category is music <br />
+
+Login: Wer <br /> Password: 1111 <br /> - category is art <br />
 
 
 ## Run
@@ -37,11 +47,16 @@ To run this project (be aware to be on server folder)
 
 ## **Info**
 
+- **Data**: data/users.js, data/games.js, data/music.js, data/art.js and data/badges.js
+- **Badges**: Users gets new badge every 5 votes made (You can see on My Rates page)
 - **Access login/register**: If a user is logged in and tries to access the login or register page then they are redirected to the profiles page
 - **Access discover/my-rate/profile**: If a user isn't logged in and tries to access these pages then he is redirected to login page
 - **Hiden Home**: If a user is logged in, they do not have 'Home' in the navigation menu
 - **How update works**: When a user updates their profile (e.g., changing their username), both data.js and the category file (e.g., games.js) are updated, where the user’s vote is recorded. A similar process applies when deleting all votes
 - **Auto refresh**: I'm using auto refreshing that's why you can see it on fe profile page. I need to do that to get up to date changes made by user (but I should use session save)
+- **Bcrypt**: I'm using bcrypt to hash passwords
+  
+- **Help urls**: For test purposes: /usersList, /gamesList, /musicsList, /artsList and on production also: /check-cookie
 
 
 
